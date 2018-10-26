@@ -19,6 +19,7 @@ android {
         debug {
             minifyEnabled true
             shrinkResources true
+            applicationIdSuffix '.debug'
         }
 
         release {
