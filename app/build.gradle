@@ -27,7 +27,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+
+    productFlavors {
+        free {
+            dimension "version"
+            applicationIdSuffix '.free'
+        }
+
+        pro {
+            dimension "version"
+            applicationIdSuffix '.pro'
+        }
+    }
 }
+
+task showApkName(group: 'app info') {
+    doLast {
+        android.applicationVariants.all {
+            variant -> variant.outputs.each {
+                println it.outputFile.name
+            }
+        }
+    }
+}
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
