@@ -31,11 +31,13 @@ android {
             minifyEnabled true
             shrinkResources true
             applicationIdSuffix '.debug'
+            buildConfigField "String", "BASE_URL", "\"debug.base\""
         }
 
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "BASE_URL", "\"release.base\""
         }
     }
 
